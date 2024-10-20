@@ -21,7 +21,9 @@ const upload = multer({storage: storage}) // middle upload has been created
 
 foodRouter.post("/add", upload.single("image"), addFood) // upload.single("image") is used to upload a single image // ("image") ===> then we have to use image when testing in postman
 foodRouter.get("/list", listFood)
-foodRouter.delete("/remove", removeFood)
+foodRouter.post("/remove", removeFood)
+// foodRouter.delete("/remove", removeFood);
+
 
 
 
