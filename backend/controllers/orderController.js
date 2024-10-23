@@ -127,4 +127,36 @@ const updateStatus = async (req, res) => {
   }
 }
 
-export { placeOrder, verifyOrder, userOrders, listOrders, updateStatus };
+// remove order for admin panel 
+const removeOrder = async (req, res) => {
+  try {
+    const {orderId} = req.body
+    await orderModel.findByIdAndDelete(orderId)
+    res.json({success: true, message: "Order deleted"})
+  } catch (error) {
+    console.log(error)
+    res.json({success: false, message: "Error"})
+  }
+}
+
+// remove order for user panel 
+const removeUserOrder = async (req, res) => {
+  try {
+    const { orderId } = req.body;
+    await orderModel.findByIdAndDelete(orderId);
+    res.json({ success: true, message: "Order deleted" });
+  } catch (error) {
+    console.log(error);
+    res.json({ success: false, message: "Error" });
+  }
+};
+
+export {
+  placeOrder,
+  verifyOrder,
+  userOrders,
+  listOrders,
+  updateStatus,
+  removeOrder,
+  removeUserOrder,
+};

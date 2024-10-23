@@ -13,9 +13,9 @@ const Orders = ({ url }) => {
     const response = await axios.get(url + "/api/order/list");
     if (response.data.success) {
       setOrders(response.data.data);
-      console.log(response.data.data);
+      // console.log(response.data.data);
     } else {
-      console.log(response.data.message);
+      // console.log(response.data.message);
       toast.error(response.data.message);
     }
   };
@@ -28,6 +28,16 @@ const Orders = ({ url }) => {
 
     if (response.data.success) {
       await fetchAllOrders();
+    }
+  };
+
+  const removeOrder = async (orderId) => {
+    const response = await axios.post(url + "/api/order/remove", {
+      orderId: orderId,
+    });
+    if (response.data.success) {
+      await fetchAllOrders();
+      toast.success(response.data.message);
     }
   };
 
@@ -80,6 +90,9 @@ const Orders = ({ url }) => {
               <option value="Out for delivery">Out for delivery</option>
               <option value="Delivered">Delivered</option>
             </select>
+            <p onClick={() => removeOrder(order._id)} className="cursor">
+              x
+            </p>
           </div>
         ))}
       </div>

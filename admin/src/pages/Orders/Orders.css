@@ -1,6 +1,6 @@
 .order-item {
     display: grid;
-    grid-template-columns: 0.5fr 2fr 1fr 1fr 1fr;
+    grid-template-columns: 0.5fr 2fr 1fr 0.5fr 1fr 0.5fr;
     align-items: start;
     gap: 30px;
     border: 1px solid tomato;
@@ -25,6 +25,13 @@
     width: max(10vw, 120px);
     padding: 10px;
     outline: none;
+}
+.order-item .cursor {
+    justify-self: end;
+    font-size: 30px;
+    padding: 0px 5px;
+    margin-top: -10px;
+    
 }
 
 @media (max-width: 1000px) {

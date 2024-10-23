@@ -11,13 +11,14 @@
 
 .my-orders-order {
   display: grid;
-  grid-template-columns: 0.5fr 2fr 1fr 1fr 2fr 1fr;
+  grid-template-columns: 0.5fr 2fr 1fr 1fr 1fr 1fr 0.5fr;
   align-items: center;
   gap: 30px;
   font-size: 14px;
   padding: 10px 20px;
   color: #454545;
   border: 1px solid tomato;
+  position: relative;
 }
 
 .my-orders-order img {
@@ -42,13 +43,41 @@
   color: #454545;
 }
 
-@media (max-width:900px) {
-    .my-orders-order {
-        grid-template-columns: 1fr 2fr 1fr;
-        row-gap: 5px;
-        font-size: 12px;
-    }
-    .my-orders-order button{
-        font-size: 10px;
-    }
+.my-orders-order .cursor {
+  cursor: pointer;
+  justify-self: center;
+  align-self: center;
+  color: tomato;
+}
+
+.my-orders-order .cursor:active {
+
+  background-color: #ffe1e1;
+  border-radius: 50%;
+  color: rgb(169, 53, 32);
+}
+
+.my-orders-order .cursor .trash-icon {
+  width: 20px;
+  margin: 5px 7px;
+  border-radius: 50%;
+  
+}
+
+
+
+@media (max-width: 900px) {
+  .my-orders-order {
+    grid-template-columns: 1fr 2fr 1fr;
+    row-gap: 5px;
+    font-size: 12px;
+  }
+  .my-orders-order button {
+    font-size: 10px;
+  }
+  .my-orders-order .cursor {
+     grid-column: 1 / -1;
+     justify-self: start;
+     margin-top: 10px;
+  }
 }
