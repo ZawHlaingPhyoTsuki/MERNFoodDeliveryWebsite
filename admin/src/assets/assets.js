@@ -18,4 +18,4 @@ export const assets = {
   parcel_icon,
 };
 
-export const url = "https://stellar-custard-ccb045.netlify.app/";
+export const url = "https://mernfooddeliverywebsite-backend.onrender.com";
